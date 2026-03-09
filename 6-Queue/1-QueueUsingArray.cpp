@@ -1,5 +1,5 @@
 // ============================================
-//      QUEUE USING LINKED LIST - C++
+//         QUEUE USING ARRAY - C++
 // ============================================
 // Operations:
 //   enqueue(x) - Insert element at rear    O(1)
@@ -7,6 +7,7 @@
 //   front()    - View front element        O(1)
 //   rear()     - View rear element         O(1)
 //   isEmpty()  - Check if queue is empty   O(1)
+//   isFull()   - Check if queue is full    O(1)
 //   size()     - Get total elements        O(1)
 //   display()  - Print all elements        O(n)
 // ============================================
@@ -14,48 +15,28 @@
 #include <iostream>
 using namespace std;
 
-// Node structure
-struct Node {
-    int data;
-    Node* next;
-
-    Node(int val) {
-        data = val;
-        next = nullptr;
-    }
-};
-
 class Queue {
 private:
-    Node* frontNode;
-    Node* rearNode;
+    int arr[100];
+    int frontIndex;
+    int rearIndex;
     int count;
 
 public:
     // Constructor
     Queue() {
-        frontNode = nullptr;
-        rearNode  = nullptr;
-        count     = 0;
-    }
-
-    // Destructor - free all memory
-    ~Queue() {
-        while (!isEmpty()) {
-            dequeue();
-        }
+        frontIndex = 0;
+        rearIndex  = -1;
+        count      = 0;
     }
 
     // Enqueue - insert at rear
     void enqueue(int x) {
-        Node* newNode = new Node(x);
-        if (isEmpty()) {
-            frontNode = newNode;
-            rearNode  = newNode;
-        } else {
-            rearNode->next = newNode;
-            rearNode       = newNode;
+        if (isFull()) {
+            cout << "Queue Overflow! Cannot enqueue " << x << endl;
+            return;
         }
+        arr[++rearIndex] = x;
         count++;
         cout << x << " enqueued to queue." << endl;
     }
@@ -66,13 +47,7 @@ public:
             cout << "Queue Underflow! Queue is empty." << endl;
             return -1;
         }
-        Node* temp = frontNode;
-        int val    = temp->data;
-        frontNode  = frontNode->next;
-        if (frontNode == nullptr) {
-            rearNode = nullptr;
-        }
-        delete temp;
+        int val = arr[frontIndex++];
         count--;
         return val;
     }
@@ -83,7 +58,7 @@ public:
             cout << "Queue is empty." << endl;
             return -1;
         }
-        return frontNode->data;
+        return arr[frontIndex];
     }
 
     // View rear element
@@ -92,12 +67,17 @@ public:
             cout << "Queue is empty." << endl;
             return -1;
         }
-        return rearNode->data;
+        return arr[rearIndex];
     }
 
     // Check if queue is empty
     bool isEmpty() {
-        return frontNode == nullptr;
+        return count == 0;
+    }
+
+    // Check if queue is full
+    bool isFull() {
+        return rearIndex == 99;
     }
 
     // Get current size
@@ -112,11 +92,9 @@ public:
             return;
         }
         cout << "Queue (front → rear): ";
-        Node* temp = frontNode;
-        while (temp != nullptr) {
-            cout << temp->data;
-            if (temp->next != nullptr) cout << " → ";
-            temp = temp->next;
+        for (int i = frontIndex; i <= rearIndex; i++) {
+            cout << arr[i];
+            if (i != rearIndex) cout << " → ";
         }
         cout << endl;
     }
