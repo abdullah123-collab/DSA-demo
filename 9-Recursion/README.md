@@ -88,41 +88,8 @@ F(n) = F(n-1) + F(n-2)
 Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ...
 ```
 
-### Approaches
 
-#### 1. Naive Recursion ❌ (Slow)
-```cpp
-long long fibRecursive(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-    return fibRecursive(n - 1) + fibRecursive(n - 2);
-}
-```
-
-#### 2. Memoization — Top-Down DP ✅
-```cpp
-map<int, long long> memo;
-long long fibMemo(int n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-    if (memo.count(n)) return memo[n];
-    memo[n] = fibMemo(n - 1) + fibMemo(n - 2);
-    return memo[n];
-}
-```
-
-#### 3. Bottom-Up DP ✅
-```cpp
-long long fibDP(int n) {
-    vector<long long> dp(n + 1);
-    dp[0] = 0; dp[1] = 1;
-    for (int i = 2; i <= n; i++)
-        dp[i] = dp[i-1] + dp[i-2];
-    return dp[n];
-}
-```
-
-#### 4. Space Optimized ⭐ (Best)
+#### Space Optimized ⭐ (Best)
 ```cpp
 long long fibOptimized(int n) {
     long long prev2 = 0, prev1 = 1, curr = 0;
@@ -159,23 +126,6 @@ Fibonacci Series (0 to 10): 0 1 1 2 3 5 8 13 21 34 55
 
 ---
 
-## 🚀 How to Compile & Run
-
-```bash
-# Factorial
-g++ factorial.cpp -o factorial
-./factorial
-
-# Fibonacci
-g++ fibonacci.cpp -o fibonacci
-./fibonacci
-
-# With optimization (enables tail-call optimization)
-g++ -O2 factorial.cpp -o factorial
-```
-
----
-
 ## 💡 Key Concepts
 
 - **Base Case** — The condition that stops recursion
@@ -186,23 +136,10 @@ g++ -O2 factorial.cpp -o factorial
 
 ---
 
-## 📚 Related Topics
-
-- [Tower of Hanoi](../basics/tower_of_hanoi.cpp)
-- [Backtracking — Subsets](../backtracking/subsets.cpp)
-- [Backtracking — Permutations](../backtracking/permutations.cpp)
-- [Divide & Conquer — Merge Sort](../divide_and_conquer/merge_sort.cpp)
-
----
-
 ## 🗂️ Folder Structure
 
 ```
 recursion/
-├── basics/
-│   ├── factorial.cpp   ← You are here
-│   ├── fibonacci.cpp   ← You are here
-│   └── README.md
-├── backtracking/
-└── divide_and_conquer/
-```
+├── factorial.cpp   ← You are here
+├── fibonacci.cpp   ← You are here
+└── README.md
