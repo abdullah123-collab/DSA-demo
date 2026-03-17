@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 
+using namespace std;
 
 class MaxHeap {
 private:
@@ -73,7 +74,7 @@ public:
 
     void pop() {
         if (size == 0) {
-            std::cout << "Heap is empty!" << std::endl;
+            cout << "Heap is empty!" << endl;
             return;
         }
         // Replace root with the last element
@@ -101,10 +102,10 @@ int main() {
     mx.push(50);
     mx.push(5);
 
-    std::cout << "Max-Heap Top (Should be 50): " << mx.top() << std::endl;
+    cout << "Max-Heap Top (Should be 50): " << mx.top() << endl;
 
     mx.pop();
-    std::cout << "New Top after pop (Should be 40): " << mx.top() << std::endl;
+    cout << "New Top after pop (Should be 40): " << mx.top() << endl;
 
     return 0;
 }
