@@ -168,7 +168,7 @@ Each folder contains:
 
 This project originated from the `Project/` folder of this repository and has been moved to its own dedicated repo for better organization and documentation.
 
-👉 **[View Mini Search Engine Repository][(https://github.com/abdullah123-collab/Mini_Search_Engine)](https://github.com/abdullah123-collab/Mini-Search-Engine.git)**
+👉 **[View Mini Search Engine Repository](https://github.com/abdullah123-collab/Mini-Search-Engine.git)**
 
 **Concepts Applied:** Hashmaps · String Searching · File I/O · Ranking Logic
 
