@@ -168,7 +168,7 @@ Each folder contains:
 
 This project originated from the `Project/` folder of this repository and has been moved to its own dedicated repo for better organization and documentation.
 
-👉 **[View Mini Search Engine Repository](https://github.com/abdullah123-collab/Mini_Search_Engine)**
+👉 **[View Mini Search Engine Repository][(https://github.com/abdullah123-collab/Mini_Search_Engine)](https://github.com/abdullah123-collab/Mini-Search-Engine.git)**
 
 **Concepts Applied:** Hashmaps · String Searching · File I/O · Ranking Logic
 
@@ -197,7 +197,7 @@ g++ BubbleSort.cpp -o BubbleSort
 ## 👨‍💻 Author
 
 **Abdullah**
-- 🎓 BSCS Student — SZABIST University
+- 🎓 BSCS Student
 - 💼 Aspiring Data Scientist
 - 🐙 GitHub: [@abdullah123-collab](https://github.com/abdullah123-collab)
 
